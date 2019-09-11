@@ -23,6 +23,7 @@ jobs:
             - v1-dependencies-
 
       - run: yarn install
+      - run: cp .env.test.example .env.test
 
       - save_cache:
           paths:
