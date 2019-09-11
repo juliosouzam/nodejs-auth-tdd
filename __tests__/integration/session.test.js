@@ -82,4 +82,14 @@ describe("Authentication", () => {
 
     expect(response.status).toBe(401);
   });
+
+  it("should return message if not user with email exists", async () => {
+    const response = await request(app)
+      .post("/sessions")
+      .send({
+        email: "julio@mail.com"
+      });
+
+    expect(response.body).toEqual({ message: "User not found" });
+  });
 });
